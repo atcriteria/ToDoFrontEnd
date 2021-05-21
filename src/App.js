@@ -1,4 +1,5 @@
-import './App.css';
+import './reset.css'; // CSS Reset
+import './main.css';
 import { useState } from 'react';
 import Header from './components/Header';
 import Board from './components/Board';
