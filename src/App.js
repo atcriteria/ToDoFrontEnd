@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Board from './components/Board';
 import CreateTodo from './components/CreateTodo';
-import Modal from './components/Modal';
 
 const initialValues = {
   todos: [],
@@ -19,12 +18,10 @@ function App() {
   } else {
     document.documentElement.classList.add(`dark`);
   }
-  console.log(document.documentElement.classList)
 
   const addTodo = todo => {
     let working = state.todos
     working.push(todo)
-    console.log(working)
     return(setState({
       ...state,
       todos: working
@@ -66,7 +63,6 @@ function App() {
     <div className={(state.lights) ? "App" : "App dark-font"} >
       <Header lights={state.lights} setLights={setLights} />
       <Board todos={state.todos} moveTodoUp={moveTodoUp} removeTodo={removeTodo} />
-      {/* <Modal addTodo={addTodo} /> */}
       <CreateTodo addTodo={addTodo} />
     </div>
   );

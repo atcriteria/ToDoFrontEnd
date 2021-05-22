@@ -183,8 +183,18 @@ input[type=text] {
 }
 
 .Modal-Container {
-  background-color: red;
   margin: 15% auto 0 auto;
+}
+
+.Modal-Container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Modal-Container form input, .Modal-Container form button {
+  margin: 0.25% 0;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -19,8 +19,8 @@ export default function Todo({todo, ind, moveTodoUp, removeTodo}){
             <button className="btn-complete">
                 <IconCheckCircle />
             </button>
-            <span>
-                {todo}
+            <span title={`Description: ${todo.todoDescription}`}>
+                {todo.todoTitle}
             </span>
             <button className="btn-delete" onClick={deleteTodo}>
                 <IconDelete />
