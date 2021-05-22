@@ -37,13 +37,21 @@ function App() {
     }))
   }
 
-  const moveTodoUp = todo => {
-    if(todo === 0){
+  /*
+  @param todo: the index of the todo to adjust
+  @param direction: 1 or -1 to determine up or down
+  */
+  const moveTodo = (todo, direction) => {
+    let maxLen = state.todos.length - 1
+    if(todo === 0 && direction<0){
+      return
+    }
+    if(todo >= maxLen && direction === 1){
       return
     }
     let working = [...state.todos]
     let tempTodo = working[todo]
-    let newInd = todo - 1
+    let newInd = todo + direction
     working.splice(todo, 1)
     working.splice(newInd, 0, tempTodo)
     return(setState({
@@ -62,7 +70,7 @@ function App() {
   return (
     <div className={(state.lights) ? "App" : "App dark-font"} >
       <Header lights={state.lights} setLights={setLights} />
-      <Board todos={state.todos} moveTodoUp={moveTodoUp} removeTodo={removeTodo} />
+      <Board todos={state.todos} moveTodo={moveTodo} removeTodo={removeTodo} />
       <CreateTodo addTodo={addTodo} />
     </div>
   );

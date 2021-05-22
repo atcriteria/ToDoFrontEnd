@@ -1,6 +1,6 @@
 import Todo from './Todo';
 
-export default function Board({todos, moveTodoUp, removeTodo}){
+export default function Board({todos, moveTodo, removeTodo}){
 
     return(
         <section className={"Board"}>
@@ -9,7 +9,7 @@ export default function Board({todos, moveTodoUp, removeTodo}){
             {
                 todos.map((todo, ind) => {
                     return(
-                    <Todo todo={todo} ind={ind} moveTodoUp={moveTodoUp} removeTodo={removeTodo} key={Math.random()} />
+                    <Todo todo={todo} ind={ind} moveTodo={moveTodo} removeTodo={removeTodo} key={Math.random()} />
                     )
                 })
             }

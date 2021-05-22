@@ -1,12 +1,18 @@
 import IconDelete from '../icons/delete';
 import IconArrowUp from '../icons/uparrow';
+import IconArrowDown from '../icons/downarrow';
 import IconCheckCircle from '../icons/checkcircle';
 
-export default function Todo({todo, ind, moveTodoUp, removeTodo}){
+export default function Todo({todo, ind, moveTodo, removeTodo}){
 
     const moveUp = e => {
         e.preventDefault()
-        moveTodoUp(ind)
+        moveTodo(ind, -1)
+    }
+
+    const moveDown = e => {
+        e.preventDefault()
+        moveTodo(ind, 1)
     }
 
     const deleteTodo = e => {
@@ -27,6 +33,9 @@ export default function Todo({todo, ind, moveTodoUp, removeTodo}){
             </button>
             <button className="btn-move" onClick={moveUp}>
                 <IconArrowUp />
+            </button>
+            <button className="btn-move" onClick={moveDown}>
+                <IconArrowDown />
             </button>
         </div>
     )
