@@ -178,15 +178,17 @@ input[type=text] {
   /* Enable scroll if needed */
   background-color: black;
   /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.75);
   /* Black w/ opacity */
 }
 
 .Modal-Container {
   margin: 15% auto 0 auto;
+  width: 40%;
 }
 
 .Modal-Container form {
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

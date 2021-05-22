@@ -179,12 +179,14 @@ input[type="text"] {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.75); /* Black w/ opacity */
 }
 .Modal-Container {
     margin: 15% auto 0 auto;
+    width: 40%;
 }
 .Modal-Container form {
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;

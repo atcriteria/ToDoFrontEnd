@@ -27,8 +27,16 @@ export default function Modal({addTodo, toggleVisible}){
         toggleVisible(e)
     }
 
+    const clickModal = (e) => {
+        if(e.target.className === "Modal"){
+            toggleVisible(e)
+        } else {
+            return
+        }
+    }
+
     return(
-        <div className="Modal">
+        <div className="Modal" onClick={clickModal}>
             <div className="Modal-Container">
                 { (!state.todoInput) ? "" : <p>"{state.todoInput}"</p> }
                 <form onSubmit={handleSubmit} >
