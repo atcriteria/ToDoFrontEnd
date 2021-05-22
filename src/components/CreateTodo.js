@@ -28,11 +28,11 @@ export default function CreateTodo({addTodo}){
     }
 
     return(
-        <section>
+        <section className="todo-creator">
             { (!state.todoInput) ? "" : <p>"{state.todoInput}"</p> }
             <form onSubmit={handleSubmit} >
                 <label>
-                    <input type="text" name="todoInput" value={state.todoInput} onChange={handleChange} />
+                    <input type="text" name="todoInput" value={state.todoInput} onChange={handleChange} size="60" placeholder="Begin typing a task to do!" />
                 </label>
                 <button type="submit">Add Todo</button>
             </form>

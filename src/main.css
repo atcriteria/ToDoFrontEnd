@@ -16,6 +16,7 @@ html {
 
 body {
   margin: auto;
+  width: 50%;
   text-align: center;
   font-family: "Cabin", Helvetica, sans-serif;
   color: #333;
@@ -29,6 +30,11 @@ h1 {
 h2 {
   margin: 1%;
   font-size: 2.2rem;
+}
+
+h3 {
+  margin: 1.5% 0 3.5% 0;
+  font-size: 1.65rem;
 }
 
 .theme-toggler {
@@ -94,9 +100,13 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-.board {
+.Board {
   margin: auto;
   width: 80%;
+}
+
+.Board h2, .Board h4 {
+  margin-bottom: 2.5%;
 }
 
 .todo {
@@ -132,6 +142,25 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: center;
   font-size: 1.4rem;
+}
+
+.todo-creator form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-creator p {
+  margin: 1.5%;
+}
+
+.todo-creator button {
+  height: 35px;
+}
+
+input[type=text] {
+  font-size: 24px;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -10,6 +10,7 @@ $dark-text: rgb(255, 234, 172);
 $dark-bg: rgb(0, 26, 83);
 $h1-size: 3.8rem;
 $h2-size: 2.2rem;
+$h3-size: 1.65rem;
 $span-size: 1.4rem;
 
 // Main styles
@@ -27,6 +28,7 @@ html {
 }
 body {
     margin: auto;
+    width: 50%;
     text-align: center;
     font-family: $font-stack;
     color: $primary-color;
@@ -35,9 +37,13 @@ h1 {
     margin: 1.5%;
     font-size: $h1-size;
 }
-h2{
+h2 {
     margin: 1%;
     font-size: $h2-size;
+}
+h3 {
+    margin: 1.5% 0 3.5% 0;
+    font-size: $h3-size;
 }
 
 // Theme toggle styles
@@ -101,9 +107,12 @@ input:checked + .slider:before {
 
 // Board styles
 
-.board{
+.Board {
     margin: auto;
     width: 80%;
+}
+.Board h2, .Board h4 {
+    margin-bottom: 2.5%;
 }
 
 // Todo styles
@@ -115,6 +124,7 @@ input:checked + .slider:before {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
     button {
         margin: 0 5px;
         background-color: rgba(255, 255, 255, 0);
@@ -141,4 +151,19 @@ input:checked + .slider:before {
         align-items: center;
         font-size: $span-size;
     }
+}
+.todo-creator form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.todo-creator p {
+    margin: 1.5%;
+}
+.todo-creator button {
+    height: 35px;
+}
+input[type="text"] {
+    font-size:24px;
 }
