@@ -15,17 +15,17 @@ export default function Todo({todo, ind, moveTodoUp, removeTodo}){
     }
 
     return(
-        <div>
-            <button>
+        <div className="todo">
+            <button className="btn-complete">
                 <IconCheckCircle />
             </button>
             <span>
                 {todo}
             </span>
-            <button onClick={deleteTodo}>
+            <button className="btn-delete" onClick={deleteTodo}>
                 <IconDelete />
             </button>
-            <button onClick={moveUp}>
+            <button className="btn-move" onClick={moveUp}>
                 <IconArrowUp />
             </button>
         </div>

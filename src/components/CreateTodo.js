@@ -29,7 +29,7 @@ export default function CreateTodo({addTodo}){
 
     return(
         <section>
-            <p>Todo: {state.todoInput}</p>
+            { (!state.todoInput) ? "" : <p>"{state.todoInput}"</p> }
             <form onSubmit={handleSubmit} >
                 <label>
                     <input type="text" name="todoInput" value={state.todoInput} onChange={handleChange} />

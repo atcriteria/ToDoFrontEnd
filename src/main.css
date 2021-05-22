@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
+.dark {
+  background-color: #001a53;
+  color: #ffeaac;
+}
+
+.dark-font {
+  color: #ffeaac;
+}
+
+html {
+  background-color: #a3e2ff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+body {
+  margin: auto;
+  text-align: center;
+  font-family: "Cabin", Helvetica, sans-serif;
+  color: #333;
+}
+
+h1 {
+  margin: 1.5%;
+  font-size: 3.8rem;
+}
+
+h2 {
+  margin: 1%;
+  font-size: 2.2rem;
+}
+
+.theme-toggler {
+  position: absolute;
+  right: 25%;
+  top: 5%;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000769;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  border-radius: 50%;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fdff92;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider:before {
+  background-color: #ffae00;
+}
+
+input:checked + .slider {
+  background-color: #cde9ff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.board {
+  margin: auto;
+  width: 80%;
+}
+
+.todo {
+  width: 100%;
+  margin: 15px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.todo button {
+  margin: 0 5px;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  padding: 0px;
+  border: none;
+  max-height: 24px;
+}
+.todo button:hover {
+  cursor: pointer;
+}
+.todo .btn-complete:hover {
+  color: green;
+}
+.todo .btn-delete:hover {
+  color: red;
+}
+.todo .btn-move:hover {
+  color: skyblue;
+}
+.todo span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -6,11 +6,19 @@ import Board from './components/Board';
 import CreateTodo from './components/CreateTodo';
 
 const initialValues = {
-  todos: []
+  todos: [],
+  lights: true // true for light theme, false for dark
 }
 
 function App() {
   const [state, setState] = useState(initialValues)
+
+  if(state.lights){
+    document.documentElement.classList.remove(`dark`);
+  } else {
+    document.documentElement.classList.add(`dark`);
+  }
+  console.log(document.documentElement.classList)
 
   const addTodo = todo => {
     let working = state.todos
@@ -46,9 +54,16 @@ function App() {
     }))
   }
 
+  const setLights = lights => {
+    return(setState({
+      ...state,
+      lights: !lights
+    }))
+  }
+
   return (
-    <div className="App">
-      <Header />
+    <div className={(state.lights) ? "App" : "App dark-font"} >
+      <Header lights={state.lights} setLights={setLights} />
       <Board todos={state.todos} moveTodoUp={moveTodoUp} removeTodo={removeTodo} />
       <CreateTodo addTodo={addTodo} />
     </div>
