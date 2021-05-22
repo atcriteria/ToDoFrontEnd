@@ -1,41 +1,24 @@
+import Modal from './Modal';
 import { useState } from 'react';
 
-const initialValues = {
-    todoInput: ""
-}
-
 export default function CreateTodo({addTodo}){
-    const [state, setState] = useState(initialValues)
+    const [visible, setVisible] = useState(false)
 
-    const handleChange = e => {
-        e.preventDefault()
-        return(setState({
-            ...state,
-            [e.target.name]: e.target.value
-        }))
-    }
-
-    const handleSubmit = e => {
-        e.preventDefault()
-        if(state.todoInput === undefined || state.todoInput === ""){
-            return
-        }
-        addTodo(state.todoInput)
-        return(setState({
-            ...state,
-            todoInput: ""
-        }))
+    const toggleVisible = e => {
+        e.preventDefault();
+        setVisible(!visible)
     }
 
     return(
         <section className="todo-creator">
-            { (!state.todoInput) ? "" : <p>"{state.todoInput}"</p> }
-            <form onSubmit={handleSubmit} >
-                <label>
-                    <input type="text" name="todoInput" value={state.todoInput} onChange={handleChange} size="60" placeholder="Begin typing a task to do!" />
-                </label>
-                <button type="submit">Add Todo</button>
-            </form>
+            {
+                (!visible) ? "" :
+                <Modal toggleVisible={toggleVisible} addTodo={addTodo} />
+            }
+            {
+                (visible) ? "" :
+                <button onClick={toggleVisible}>Create ToDo</button>
+            }
         </section>
     )
 }
