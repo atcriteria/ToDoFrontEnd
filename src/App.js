@@ -13,6 +13,7 @@ const initialValues = {
 function App() {
   const [state, setState] = useState(initialValues)
 
+
   if(state.lights){
     document.documentElement.classList.remove(`dark`);
   } else {
@@ -60,6 +61,15 @@ function App() {
     }))
   }
 
+  const editTodo = (todo, ind) => {
+    let working = state.todos;
+    working[ind] = todo
+    return setState({
+      ...state,
+      todos: working
+    })
+  }
+
   const setLights = lights => {
     return(setState({
       ...state,
@@ -70,7 +80,7 @@ function App() {
   return (
     <div className={(state.lights) ? "App" : "App dark-font"} >
       <Header lights={state.lights} setLights={setLights} />
-      <Board todos={state.todos} moveTodo={moveTodo} removeTodo={removeTodo} />
+      <Board todos={state.todos} moveTodo={moveTodo} removeTodo={removeTodo} editTodo={editTodo} />
       <CreateTodo addTodo={addTodo} />
     </div>
   );

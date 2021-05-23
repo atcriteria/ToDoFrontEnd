@@ -3,7 +3,11 @@ import IconArrowUp from '../icons/uparrow';
 import IconArrowDown from '../icons/downarrow';
 import IconCheckCircle from '../icons/checkcircle';
 
-export default function Todo({todo, ind, moveTodo, removeTodo}){
+import { useState } from 'react';
+import EditTodo from './EditTodo';
+
+export default function Todo({todo, ind, moveTodo, removeTodo, editTodo}){
+    const [visible, setVisible] = useState(false)
 
     const moveUp = e => {
         e.preventDefault()
@@ -20,8 +24,14 @@ export default function Todo({todo, ind, moveTodo, removeTodo}){
         removeTodo(ind)
     }
 
+    const toggleEdit = e => {
+        e.preventDefault()
+        setVisible(!visible)
+    }
+
     return(
         <div className="todo">
+            {(!visible) ? "" : <EditTodo todo={todo} toggleEdit={toggleEdit} editTodo={editTodo} ind={ind} />}
             <button className="btn-complete">
                 <IconCheckCircle />
             </button>
@@ -36,6 +46,9 @@ export default function Todo({todo, ind, moveTodo, removeTodo}){
             </button>
             <button className="btn-move" onClick={moveDown}>
                 <IconArrowDown />
+            </button>
+            <button onClick={toggleEdit}>
+                Edit
             </button>
         </div>
     )
