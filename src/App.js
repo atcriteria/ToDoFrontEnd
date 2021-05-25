@@ -4,10 +4,14 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Board from './components/Board';
 import CreateTodo from './components/CreateTodo';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 const initialValues = {
   todos: [],
   lights: true, // true for light theme, false for dark
+  account: false, // check if logged in, set to false to work on login thing
+  login: true // true to display login, false to display signup
 }
 
 function App() {
@@ -70,6 +74,13 @@ function App() {
     })
   }
 
+  const toggleLoginSignup = () => {
+    return(setState({
+      ...state,
+      login: !state.login
+    }))
+  }
+
   const setLights = lights => {
     return(setState({
       ...state,
@@ -80,8 +91,13 @@ function App() {
   return (
     <div className={(state.lights) ? "App" : "App dark-font"} >
       <Header lights={state.lights} setLights={setLights} />
-      <Board todos={state.todos} moveTodo={moveTodo} removeTodo={removeTodo} editTodo={editTodo} />
-      <CreateTodo addTodo={addTodo} />
+      {
+        (!state.account) ? ((!state.login) ? <Login toggleLoginSignup={toggleLoginSignup} /> : <Signup toggleLoginSignup={toggleLoginSignup} />) :
+        <div>
+          <Board todos={state.todos} moveTodo={moveTodo} removeTodo={removeTodo} editTodo={editTodo} />
+          <CreateTodo addTodo={addTodo} />
+        </div>
+      }
     </div>
   );
 }

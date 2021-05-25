@@ -159,7 +159,7 @@ input:checked + .slider:before {
   height: 35px;
 }
 
-input[type=text] {
+input[type=text], input[type=password], input[type=email] {
   font-size: 24px;
 }
 
@@ -180,11 +180,20 @@ input[type=text] {
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.75);
   /* Black w/ opacity */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Modal-Container {
-  margin: 15% auto 0 auto;
+  margin: auto;
+  position: relative;
+  padding: 3% 0;
   width: 40%;
+  border-radius: 25px;
+  border: 3px solid white;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .Modal-Container form {
@@ -197,6 +206,102 @@ input[type=text] {
 
 .Modal-Container form input, .Modal-Container form button {
   margin: 0.25% 0;
+}
+
+.Modal-Container .Modal-close-btn {
+  position: absolute;
+  width: 10%;
+  height: 25px;
+  border-radius: 0;
+  bottom: 2%;
+  right: 45%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+}
+
+.Modal-Container .Modal-close-btn:hover {
+  cursor: pointer;
+  background-color: darkred;
+}
+
+.login-container {
+  border: 3px solid white;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  margin: auto;
+  padding: 5% 2.5%;
+  width: 50%;
+}
+
+.login-container p {
+  margin: 2.5% 0;
+}
+
+.login-container form {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container label {
+  width: 70%;
+  text-align: left;
+  margin: 2.5% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container label p {
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.login-container label input {
+  width: 100%;
+}
+
+.login-container button {
+  margin: 7.5% auto;
+  width: 150px;
+  height: 50px;
+  font-size: 1.4rem;
+  box-shadow: 0px 2px black;
+  border-radius: 15px;
+  background-color: #f752e1;
+  border: none;
+}
+
+.login-container button:hover {
+  cursor: pointer;
+  background-color: #fd96ef;
+}
+
+.login-container em {
+  color: #ff798f;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.text-container p {
+  width: 80%;
+  margin: 2.5% auto;
+  line-height: 1.65rem;
+}
+
+.text-container ol {
+  width: 15%;
+  margin: auto;
+  list-style: square;
+  text-align: left;
 }
 
 /*# sourceMappingURL=main.css.map */

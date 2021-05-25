@@ -28,7 +28,7 @@ export default function Modal({addTodo, toggleVisible}){
     }
 
     const clickModal = (e) => {
-        if(e.target.className === "Modal"){
+        if(e.target.className === "Modal" || e.target.className === "Modal-close-btn"){
             toggleVisible(e)
         } else {
             return
@@ -38,6 +38,7 @@ export default function Modal({addTodo, toggleVisible}){
     return(
         <div className="Modal" onClick={clickModal}>
             <div className="Modal-Container">
+                <div className="Modal-close-btn" onClick={clickModal}>Close</div>
                 { (!state.todoInput) ? "" : <p>"{state.todoInput}"</p> }
                 <form onSubmit={handleSubmit} >
                     <input required type="text" name="todoTitle" value={state.todoInput} onChange={handleChange} size="60" placeholder="Begin typing a task to do!" />
@@ -45,7 +46,6 @@ export default function Modal({addTodo, toggleVisible}){
                     onChange={handleChange} size="60" placeholder="Write down some details about your new-ToDo!" />
                     <button type="submit">Add Todo</button>
                 </form>
-                <button onClick={toggleVisible}>Cancel</button>
             </div>
         </div>
     )
