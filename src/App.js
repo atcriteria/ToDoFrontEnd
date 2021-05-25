@@ -9,9 +9,9 @@ import Signup from './components/Signup';
 
 const initialValues = {
   todos: [],
-  lights: true, // true for light theme, false for dark
-  account: false, // check if logged in, set to false to work on login thing
-  login: true // true to display login, false to display signup
+  lights: (window.localStorage.getItem("lights")) ? false : true, // true for light theme, false for dark
+  account: (window.localStorage.getItem("token")) ? true : false, // check if logged in, set to false to work on login thing
+  login: true, // true to display login, false to display signup
 }
 
 function App() {
@@ -81,7 +81,19 @@ function App() {
     }))
   }
 
+  const toggleAccount = () => {
+    return(setState({
+      ...state,
+      account: !state.account
+    }))
+  }
+
   const setLights = lights => {
+    if(lights){
+      window.localStorage.setItem("lights", false)
+    } else {
+      window.localStorage.removeItem("lights");
+    }
     return(setState({
       ...state,
       lights: !lights
@@ -92,7 +104,9 @@ function App() {
     <div className={(state.lights) ? "App" : "App dark-font"} >
       <Header lights={state.lights} setLights={setLights} />
       {
-        (!state.account) ? ((!state.login) ? <Login toggleLoginSignup={toggleLoginSignup} /> : <Signup toggleLoginSignup={toggleLoginSignup} />) :
+        (!state.account) ? ((state.login) ?
+          <Login toggleAccount={toggleAccount} toggleLoginSignup={toggleLoginSignup} lights={state.lights} /> :
+          <Signup toggleLoginSignup={toggleLoginSignup} lights={state.lights} />) :
         <div>
           <Board todos={state.todos} moveTodo={moveTodo} removeTodo={removeTodo} editTodo={editTodo} />
           <CreateTodo addTodo={addTodo} />

@@ -8,6 +8,10 @@
   color: #ffeaac;
 }
 
+.day-modal {
+  color: white;
+}
+
 html {
   background-color: #a3e2ff;
   -webkit-transition: 0.4s;

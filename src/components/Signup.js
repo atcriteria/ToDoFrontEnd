@@ -4,10 +4,11 @@ import TextModal from './TextModal';
 const initialValues = {
     username: "",
     password: "",
+    passwordConfirm: "",
     email: ""
 }
 
-export default function Signup({toggleLoginSignup}) {
+export default function Signup({toggleLoginSignup, lights}) {
     const [state, setState] = useState(initialValues);
     const [textModal, setTextModal] = useState(false)
 
@@ -20,7 +21,16 @@ export default function Signup({toggleLoginSignup}) {
 
     const handleSubmit = e => {
         e.preventDefault()
-        alert('yup you did it')
+        if(state.password === state.passwordConfirm){
+            alert('yup you did it')
+        } else {
+            alert('Your passwords must match >:(')
+            setState({
+                ...state,
+                password: "",
+                passwordConfirm: ""
+            })
+        }
     }
 
     const whyAccount = e => {
@@ -42,9 +52,9 @@ export default function Signup({toggleLoginSignup}) {
     }
 
     return(
-        <div className="login-container">
+        <div className={(lights) ? "login-container" : "login-container dark"}>
             {
-                (textModal) ? <TextModal clickModal={clickModal} /> : ""
+                (textModal) ? <TextModal clickModal={clickModal} lights={lights} /> : ""
             }
             <h3>Create a free account below</h3>
             <form onSubmit={handleSubmit} >
@@ -53,6 +63,9 @@ export default function Signup({toggleLoginSignup}) {
                 </label>
                 <label><p>Password:</p>
                     <input type="password" name="password" onChange={handleChange} value={state.password} required />
+                </label>
+                <label><p>Confirm Password:</p>
+                    <input type="password" name="passwordConfirm" onChange={handleChange} value={state.passwordConfirm} required />
                 </label>
                 <label><p>Email Address:</p>
                     <input type="email" name="email" onChange={handleChange} value={state.email} required />

@@ -1,4 +1,4 @@
-export default function TextModal({clickModal}){
+export default function TextModal({clickModal, lights}){
 
     const clickHandler = e => {
         e.preventDefault()
@@ -7,7 +7,7 @@ export default function TextModal({clickModal}){
 
     return(
         <div className="Modal" onClick={clickHandler}>
-            <div className="Modal-Container" onClick={clickHandler}>
+            <div className={(lights) ? "Modal-Container day-modal" : "Modal-Container dark"} onClick={clickHandler}>
                 <div className="Modal-close-btn" onClick={clickHandler}>Close</div>
                 <h2>~Account Policy~</h2>
                 <div className="text-container">
