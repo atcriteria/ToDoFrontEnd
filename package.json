@@ -16,7 +16,9 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "dev": "concurrently --kill-others \"npm run start\" \"npm run sass-start\"",
     "start": "react-scripts start",
+    "sass-start": "sass --watch src/input.scss src/main.css",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -38,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0"
   }
 }

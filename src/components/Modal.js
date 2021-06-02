@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const initialValues = {
     todoTitle: "",
-    todoDescription: ""
+    todoDescription: "",
 }
 
 export default function Modal({addTodo, toggleVisible}){

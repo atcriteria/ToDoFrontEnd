@@ -1,6 +1,7 @@
 import ThemeToggle from './ThemeToggle';
 
-export default function Header({lights, setLights}){
+export default function Header({ lights, setLights }){
+
     return(
         <header>
             <h1>
