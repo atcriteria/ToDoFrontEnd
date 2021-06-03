@@ -36,9 +36,9 @@ export default function EditTodo({ todo, toggleEdit, editTodo, ind }){
         <div className="Modal" onClick={clickModal}>
             <div className="Modal-Container">
                 <form onSubmit={handleSubmit} >
-                    <input required type="text" name="todoTitle" value={state.todoTitle} onChange={handleChange} size="60" placeholder="Edit this ToDo!" />
+                    <input required type="text" name="todoTitle" value={state.todoTitle} onChange={handleChange} placeholder="Edit this ToDo!" />
                     <input type="text" name="todoDescription" value={state.todoDescription}
-                    onChange={handleChange} size="60" placeholder="Write down some details about your updated-ToDo!" />
+                    onChange={handleChange} placeholder="Write down some details about your updated-ToDo!" />
                     <button type="submit">Update Todo</button>
                 </form>
                 <button onClick={toggleEdit}>Cancel</button>

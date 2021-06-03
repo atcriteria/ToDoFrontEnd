@@ -17,7 +17,7 @@ export default function CreateTodo({addTodo}){
             }
             {
                 (visible) ? "" :
-                <button onClick={toggleVisible}>Create ToDo</button>
+                <button className="reg-btn" onClick={toggleVisible}>Create ToDo</button>
             }
         </section>
     )

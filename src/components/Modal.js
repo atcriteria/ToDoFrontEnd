@@ -41,10 +41,10 @@ export default function Modal({addTodo, toggleVisible}){
                 <div className="Modal-close-btn" onClick={clickModal}>Close</div>
                 { (!state.todoInput) ? "" : <p>"{state.todoInput}"</p> }
                 <form onSubmit={handleSubmit} >
-                    <input required type="text" name="todoTitle" value={state.todoInput} onChange={handleChange} size="60" placeholder="Begin typing a task to do!" />
+                    <input required type="text" name="todoTitle" value={state.todoInput} onChange={handleChange} placeholder="Begin typing a task to do!" />
                     <input type="text" name="todoDescription" value={state.todoDescription}
-                    onChange={handleChange} size="60" placeholder="Write down some details about your new-ToDo!" />
-                    <button type="submit">Add Todo</button>
+                    onChange={handleChange} placeholder="Description...." />
+                    <button className="reg-btn" type="submit">Add ToDo</button>
                 </form>
             </div>
         </div>

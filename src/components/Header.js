@@ -1,6 +1,11 @@
 import ThemeToggle from './ThemeToggle';
 
-export default function Header({ lights, setLights }){
+export default function Header({ lights, setLights, callLogout }){
+
+    const submitLogout = e => {
+        e.preventDefault();
+        callLogout();
+    }
 
     return(
         <header>
@@ -10,7 +15,13 @@ export default function Header({ lights, setLights }){
             <h3>
                 A simple ToDo Application to help you track your tasks
             </h3>
-            <ThemeToggle lights={lights} setLights={setLights} />
+            <nav className="nav-header">
+                {
+                    (!window.localStorage.getItem("token")) ? "" : 
+                    <button className="reg-btn" onClick={submitLogout} >Logout</button>
+                }
+                <ThemeToggle lights={lights} setLights={setLights} />
+            </nav>
         </header>
     )
 }

@@ -117,6 +117,14 @@ function App() {
       })
   }
 
+  const callLogout = () => {
+    window.localStorage.removeItem("token")
+    return setState({
+      ...state,
+      account: false
+    })
+  }
+
   const setLights = lights => {
     if(lights){
       window.localStorage.setItem("lights", false)
@@ -131,7 +139,7 @@ function App() {
 
   return (
     <div className={(state.lights) ? "App" : "App dark-font"} >
-      <Header saveTodos={saveTodos} lights={state.lights} setLights={setLights} />
+      <Header callLogout={callLogout} lights={state.lights} setLights={setLights} />
       {
         (!state.account) ? ((state.login) ?
           <Login toggleAccount={toggleAccount} toggleLoginSignup={toggleLoginSignup} lights={state.lights} /> :
